@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-lgicdb01Main<lgicdb01>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "com.bluescript.demo.lgicdb01Main",
+            "projectName": "lgicdb01",
+            "args": ""
+        }
+    ]
+}
