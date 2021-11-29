@@ -1,6 +1,8 @@
 package com.bluescript.demo.entity;
 
 import java.io.Serializable;
+import java.sql.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -33,7 +35,7 @@ public class CustomerEntity implements Serializable {
     @Column(name = "LASTNAME")
     private String lastName;
     @Column(name = "DATEOFBIRTH")
-    private String dateOfBirth;
+    private Date dateOfBirth;
     @Column(name = "HOUSENAME")
     private String houseName;
     @Column(name = "HOUSENUMBER")
