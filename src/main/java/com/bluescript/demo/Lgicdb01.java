@@ -179,8 +179,7 @@ public class Lgicdb01 {
         WebClient webclientBuilder = WebClient.create(LGSTSQ_HOST);
         try {
             Mono<ErrorMsg> lgstsqResp = webclientBuilder.post().uri(LGSTSQ_URI)
-                    .body(Mono.just(errorMsg), ErrorMsg.class).retrieve().bodyToMono(ErrorMsg.class)
-                    .timeout(Duration.ofMillis(10_000));
+                    .body(Mono.just(errorMsg), ErrorMsg.class).retrieve().bodyToMono(ErrorMsg.class);// .timeout(Duration.ofMillis(10_000));
             errorMsg = lgstsqResp.block();
         } catch (Exception e) {
             log.error(e);
@@ -190,8 +189,7 @@ public class Lgicdb01 {
                 caData = (dfhcommarea.getCaRequestId().substring(0, 9));
                 try {
                     Mono<String> lgstsqResp = webclientBuilder.post().uri(LGSTSQ_URI)
-                            .body(Mono.just(caErrorMsg), String.class).retrieve().bodyToMono(String.class)
-                            .timeout(Duration.ofMillis(10_000));
+                            .body(Mono.just(caErrorMsg), String.class).retrieve().bodyToMono(String.class);// .timeout(Duration.ofMillis(10_000));
                     caErrorMsg = lgstsqResp.block();
                 } catch (Exception e) {
                     log.error(e);
@@ -202,8 +200,7 @@ public class Lgicdb01 {
                         + dfhcommarea.getCaRequestSpecific().substring(0, 72));
                 try {
                     Mono<String> lgstsqResp = webclientBuilder.post().uri(LGSTSQ_URI)
-                            .body(Mono.just(caErrorMsg), String.class).retrieve().bodyToMono(String.class)
-                            .timeout(Duration.ofMillis(10_000));
+                            .body(Mono.just(caErrorMsg), String.class).retrieve().bodyToMono(String.class);// .timeout(Duration.ofMillis(10_000));
                     caErrorMsg = lgstsqResp.block();
                 } catch (Exception e) {
                     log.error(e);
