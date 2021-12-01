@@ -154,15 +154,19 @@ public class Lgicdb01 {
         try {
 
             getCustomerJpaDto = getCustomerJpa.getCustomerByDb2CustomernumberInt(db2CustomernumberInt);
-            dfhcommarea.setCaReturnCode(00);
-            log.info("getCustomerJpaDto:" + getCustomerJpaDto.getCaFirstName());
-            BeanUtils.copyProperties(getCustomerJpaDto, caCustomerRequest);
-            log.info("getCustomerJpaDto:copied:" + caCustomerRequest.getCaFirstName());
-            dfhcommarea.setCaCustomerRequest(caCustomerRequest);
+            if (getCustomerJpaDto != null) {
+                dfhcommarea.setCaReturnCode(00);
+                log.info("getCustomerJpaDto:" + getCustomerJpaDto.getCaFirstName());
+                BeanUtils.copyProperties(getCustomerJpaDto, caCustomerRequest);
+                log.info("getCustomerJpaDto:copied:" + caCustomerRequest.getCaFirstName());
+                dfhcommarea.setCaCustomerRequest(caCustomerRequest);
+            } else {
+                dfhcommarea.setCaReturnCode(01);
+            }
 
         } catch (Exception e) {
             log.error(e);
-            dfhcommarea.setCaReturnCode(01);
+            dfhcommarea.setCaReturnCode(90);
             writeErrorMessage();
         }
         log.info("Method getCustomerInfo completed..");
